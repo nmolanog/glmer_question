@@ -103,12 +103,12 @@ for(i in c("estimate","LCI","UCI")){
 res_df2
 pd<-position_dodge(0.5)
 p1<-res_df2%>%filter(!method %in% "araw" & var %in% dic_vars)%>%ggplot(aes(x=var, y=estimate,colour=method))+
-  geom_errorbar(aes(ymin=LCI, ymax=UCI), width=.5,position=pd)+geom_point(position=pd)+theme_bw()
+  geom_errorbar(aes(ymin=LCI, ymax=UCI), width=.5,position=pd)+geom_point(position=pd)+theme_bw()+ggtitle("dichotomous variables")
 
 p2<-res_df2%>%filter(!method %in% "araw" & !(var %in% c(dic_vars,"I")))%>%ggplot(aes(x=var, y=estimate,colour=method))+
-  geom_errorbar(aes(ymin=LCI, ymax=UCI), width=.5,position=pd)+geom_point(position=pd)+theme_bw()
+  geom_errorbar(aes(ymin=LCI, ymax=UCI), width=.5,position=pd)+geom_point(position=pd)+theme_bw()+ggtitle("continuous variables")
 
 p3<-res_df2%>%filter(!method %in% "araw" & var %in% "I")%>%ggplot(aes(x=var, y=estimate,colour=method))+
-  geom_errorbar(aes(ymin=LCI, ymax=UCI), width=.5,position=pd)+geom_point(position=pd)+theme_bw()
+  geom_errorbar(aes(ymin=LCI, ymax=UCI), width=.5,position=pd)+geom_point(position=pd)+theme_bw()+ggtitle("continuous variables")
 
 grid.arrange(p1, p2,p3, nrow = 1)
