@@ -1,0 +1,1 @@
+This project is to illustrate how to use glm and glmm to estimate expected values based on data from "normal" and "bernoulli" distributions.
